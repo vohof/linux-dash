@@ -4,7 +4,7 @@
     $dnsmasq_lease_file = "/var/lib/misc/dnsmasq.leases";
 
   // check if DNS MASQ file exists
-  if (file_exists($dnsmasq_lease_file) ){
+  if (file_exists($dnsmasq_lease_file) ) {
 
     // get the contents of the lease file
     $data = file_get_contents($dnsmasq_lease_file);
@@ -13,14 +13,13 @@
     $data = explode("\n", $data);
 
     // strip any blank lines
-    $data = array_filter($data, function($v){ return $v; });
+    $data = array_filter($data, function ($v) { return $v; });
 
     // build the results
     $results = array();
 
     // step through the data
-    foreach( $data as $l )
-    {
+    foreach ($data as $l) {
         // explode each line of the data
         $l = explode(" ", $l);
 
@@ -34,11 +33,10 @@
         // add the line to the results
         $results[] = $l;
     } // END foreach
- } 
+ }
  // if DNS MASQ file does NOT exist
  else{
    $results = array();
 }
     // output the results
     echo json_encode($results);
-

@@ -1,5 +1,5 @@
-<?php 
-    
+<?php
+
     exec('/bin/grep -c ^processor /proc/cpuinfo',$resultNumberOfCores);
     $numberOfCores = $resultNumberOfCores[0];
 
@@ -15,7 +15,8 @@
             array_fill(0, count($loadAvg), $numberOfCores)
         )
     );
-    
-    function convertToPercentage($value, $numberOfCores){
-        return array($value, (int)($value * 100 / $numberOfCores));
+
+    function convertToPercentage($value, $numberOfCores)
+    {
+        return array($value, (int) ($value * 100 / $numberOfCores));
     }
